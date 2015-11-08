@@ -46,7 +46,7 @@ int main(){
 	cout<<"vertex and edges:";
 	cin >>v>>e;
 	vector<vector<int>>g(v,vector<int>(0));
-	for(int i=0;i<v;i++){
+	for(int i=0;i<e;i++){
 		cin >>src>>dest;
 		g[src].push_back(dest);
 		g[dest].push_back(src);
