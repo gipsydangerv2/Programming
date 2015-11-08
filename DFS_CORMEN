@@ -1,0 +1,66 @@
+/*
+  This program is of DFS as mentioned in the Cormen Algorithm book.
+  code credits:Ankit Kumar
+  created on :11/8/15
+*/
+
+#include<iostream>
+#include<stack>
+#include<vector>
+using namespace std;
+int time;
+vector<char>color(0);
+vector<pair<int,int>>time_pair(0);
+vector<int>parent(0);
+void DFS_VISIT(vector<vector<int>>g,int vertex){
+	color[vertex]='g';
+	time_pair[vertex].first=time+1;
+	time ++;
+	for(vector<int>::iterator it=g[vertex].begin();it!=g[vertex].end();it++){
+		if(color[*it]=='w'){
+			parent[*it]=vertex;
+			DFS_VISIT(g,*it);
+		}
+	}
+	color[vertex]='b';
+	time = time + 1;
+	time_pair[vertex].second = time;
+}
+void DFS(vector<vector<int>>g){
+	color.resize(g.size());
+	time_pair.resize(g.size());
+	parent.resize(g.size());
+	for(int i=0;i<g.size();i++){
+		color[i]='w';
+		parent[i]=-1;
+	}
+	for(int i=0;i<g.size();i++){
+		for(vector<int>::iterator it=g[i].begin();it!=g[i].end();it++){
+			if(color[*it]=='w'){
+				DFS_VISIT(g,*it);
+			}
+		}
+	}
+}
+int main(){
+	int v,e,src,dest;
+	cout<<"vertex and edges:";
+	cin >>v>>e;
+	vector<vector<int>>g(v,vector<int>(0));
+	for(int i=0;i<v;i++){
+		cin >>src>>dest;
+		g[src].push_back(dest);
+		g[dest].push_back(src);
+	}
+	for(int i=0;i<v;i++){
+		for(int j=0;j<g[i].size();j++)
+			cout<<g[i][j]<<" ";
+		cout<<endl;
+	}
+	DFS(g);
+	cout<<"After traversal:"<<endl;
+	for(int i=0;i<v;i++){
+		cout<<color[i]<<" "<<parent[i]<<" "<<"("<<time_pair[i].first<<","<<time_pair[i].second<<")"<<endl;
+	}
+	return 0;
+}
