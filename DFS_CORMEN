@@ -1,5 +1,6 @@
 /*
   This program is of DFS as mentioned in the Cormen Algorithm book.
+  This program is for undirected graph.
   code credits:Ankit Kumar
   created on :11/8/15
 */
