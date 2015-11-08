@@ -35,10 +35,8 @@ void DFS(vector<vector<int>>g){
 		parent[i]=-1;
 	}
 	for(int i=0;i<g.size();i++){
-		for(vector<int>::iterator it=g[i].begin();it!=g[i].end();it++){
-			if(color[*it]=='w'){
-				DFS_VISIT(g,*it);
-			}
+		if(color[i]=='w'){
+			DFS_VISIT(g,i);
 		}
 	}
 }
