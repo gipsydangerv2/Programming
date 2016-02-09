@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 int knapsack(int capacity,int w[],int p[],int n){
-  int i,j;
   int table[n+1][capacity+1];
   for(int i=0;i<=n;i++){
     for(int j=0;j<=capacity;j++){
@@ -16,5 +15,5 @@ int knapsack(int capacity,int w[],int p[],int n){
   return table[n+1][capacity+1];
 }
 int main(){
-
+  // call knapsack(capacity,w,p,n);
 }
