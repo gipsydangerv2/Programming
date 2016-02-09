@@ -3,6 +3,7 @@
 using namespace std;
 int lcstring(string input1,string input2,int m,int n){
   int table[m+1][n+1];
+  int ans = 0;
   for(int i=0;i<=m;i++){
     for(int j=0;j<=n;j++){
       if(i==0 || j==0)
@@ -11,6 +12,7 @@ int lcstring(string input1,string input2,int m,int n){
         table[i][j] = 1 + table[i-1][j-1];
       else 
         table[i][j] = 0;
+      if(table[i][j]>ans) ans = table[i][j];
     }
   }
   return table[m][n];
