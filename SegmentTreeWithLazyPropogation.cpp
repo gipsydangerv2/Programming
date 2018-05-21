@@ -7,6 +7,7 @@ using namespace std;
 # define ll long long
 ll t[4*maxn];
 int arr[maxn];
+ll lazy[4*maxn];    // same size as segment tree t.
 void build(int v,int start,int end){
     if(start == end)
         t[v]=arr[start];
