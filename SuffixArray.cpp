@@ -1,5 +1,9 @@
-#include <bits/stdc++.h>
+/*
+   Time Complexity : O(n log^2 n)
+   Suffix Array can be created in O(n log n) also using radix sort.
+*/
 
+#include <bits/stdc++.h>
 using namespace std;
 # define maxn 100001
 string suffix[maxn];
