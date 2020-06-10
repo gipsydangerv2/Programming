@@ -119,7 +119,8 @@ public class Solution {
             queryType = Integer.parseInt(input[0]);
             val1 = Integer.parseInt(input[1]);
             val2 = Integer.parseInt(input[2]);
-            // 1: update query, 2 : range sum query.
+            // 1: update query
+            // 2: Max Number in a range with its count query.
             if (queryType == 1) {
                 tree.updateTree(1, 0, n - 1, val1 , val2);
             }
